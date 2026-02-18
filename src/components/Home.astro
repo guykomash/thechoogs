@@ -1,7 +1,9 @@
 ---
 import { Image } from 'astro:assets';
+import postImage from "../images/1/newRoccbox.jpg";
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
+
 ---
 
 <h2>Home Page</h2>
@@ -12,7 +14,7 @@ const allPosts = await getCollection("posts");
         <a href={`/blog/posts/${post.id}`}>
           <Image
             class="post-image"
-            src={`../images/${post.data.image}`}
+            src={postImage}
             alt={post.data.title}
             title={post.data.title}
           />
