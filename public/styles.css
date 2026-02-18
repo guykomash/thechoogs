@@ -1,9 +1,8 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  color: #153147;
+  color: #212121;
 }
-
 
 html {
   scroll-behavior: smooth; /* Enables smooth scrolling */
@@ -13,12 +12,11 @@ main {
   flex:1;
 }
 
-body {
-  font-family: "Open Sans", serif;
+body{
+  font-family: "Fira Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
   background-color: #f4f4f4;
-  color: #303030;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -32,9 +30,6 @@ body {
   margin: 0 auto;
 }
 
-.header-titles h2 {
- margin-top: -15px;
-}
 header {
   position: sticky;
   right: 0;
@@ -54,21 +49,28 @@ a {
 }
 
 header h1 {
-  font-family: "Fira Mono";
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
   margin: 0; 
-  font-size: 4rem;
+  font-size: 6rem;
   flex-grow: 1;
   text-align: center; /* Center the text inside the h1 */
-  
 }
 
+header h2 {
+  font-family: "Modak", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.7rem;
+  margin-top: -13px;
+  margin-left: -70px;
+}
 header h1 a {
   margin: 0; /* Remove extra margin */
   text-decoration: none;
   white-space: nowrap;
-  word-spacing: -1.5rem; /* Adjust word spacing */
-} header h1 a:hover {
-  color: #303030;
+  /* word-spacing: -1rem; */
 }
 header nav {
   display: flex;
@@ -107,6 +109,7 @@ header a:hover {
   color: #292929; /* Change color on hover */
   text-decoration: none;
 }
+
 /* Side panel styles */
 .side-panel {
   position: fixed;
@@ -197,7 +200,11 @@ footer li a {
 } 
 
 footer p {
-  font-size: 0.9rem;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.5rem;
+  margin-top: 10px;
   color: #dcdcdc;
 }
 
@@ -222,9 +229,8 @@ footer nav li a {
   cursor: pointer;
 }
 
-
-/* Recipe grid styles */
-.recipe-grid {
+/* post grid styles */
+.post-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 20px;
@@ -234,7 +240,7 @@ footer nav li a {
   min-width: 300px;
 }
 
-.recipe-card {
+.post-card {
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -245,52 +251,42 @@ footer nav li a {
   margin: 10px auto;
 }
 
-.recipe-image {
+.post-image {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
 /* Adjustments for smaller screens */
-@media (min-width: 2000px) {
-  .recipe-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
-  }
-}
-@media (max-width: 2100px) {
-  .recipe-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
-  }
-}
-@media (max-width: 1900px) {
-  .recipe-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+/* 4 columns for screens wider than 1920px */
+@media (min-width: 1921px) {
+  .post-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 1400px) {
-  .recipe-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+/* 3 columns for screens between 1441px and 1920px */
+@media (max-width: 1920px) and (min-width: 1441px) {
+  .post-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 700px) {
-  .recipe-grid {
-    grid-template-columns: 1fr; /* Single column for mobile */
+/* 2 columns for screens between 961px and 1440px */
+@media (max-width: 1440px) and (min-width: 961px) {
+  .post-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Scrollbar styles */
-
-::-webkit-scrollbar-track {
-  background: #153147; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the track */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #f4f4f4; /* Background of the scrollbar track */
-  border-radius: 10px; /* Rounded corners for the thumb */
-  border: 3px solid #f4f4f4; /* Adds padding around the thumb */
+/* 1 column for screens 960px wide or smaller */
+@media (max-width: 960px) {
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+  header h1 {
+    font-size: 4.3rem;
+  }
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -298,19 +294,162 @@ footer nav li a {
 }
 
 /* Responsive styles */
-
 @media (max-width: 600px) {
   .toggle-side-panel {
     display: block;
-  }
-
-  header h1 {
-    font-size: 3rem;
   }
 }
 
 @media (max-width: 650px) {
   header nav {
     display: none;
+  }
+}
+
+
+/* Fonts */
+.fira-sans-thin {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.fira-sans-extralight {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.fira-sans-light {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.fira-sans-regular {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fira-sans-medium {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.fira-sans-semibold {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.fira-sans-bold {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.fira-sans-extrabold {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.fira-sans-black {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.fira-sans-thin-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.fira-sans-extralight-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.fira-sans-light-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.fira-sans-regular-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.fira-sans-medium-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.fira-sans-semibold-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.fira-sans-bold-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.fira-sans-extrabold-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.fira-sans-black-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.modak-regular {
+  font-family: "Modak", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.banner-container {
+  position: sticky;
+  overflow: hidden;
+  white-space: nowrap;
+  background: white;
+  color: black;
+  padding: 10px;
+  font-family: "Bungee", sans-serif;
+  
+}
+
+.banner-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 14s linear infinite;
+  font-size: 1.5rem;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }
