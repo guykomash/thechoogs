@@ -12,7 +12,7 @@ const posts = await getCollection("posts");
     {
       posts.map((post) => (
         <div id={post.id} class="post-card">
-          <a href={`/posts/${post.id}`}>
+          <a href={`/blog/posts/${post.id}`}>
             <Image
               class="post-image"
               src={post.data.coverImage}
