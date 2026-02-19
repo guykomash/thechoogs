@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import Layout from "./Layout.astro";
 
@@ -9,7 +10,7 @@ const { title, description, publishDate, coverImage, author } = Astro.props;
 <Layout>
   <div class="post-page">
     <h1>{title}</h1>
-    <img class="post-page-image" src={coverImage.src} alt={title} />
+    <Image class="post-page-image" src={coverImage} alt={title} />
   </div>
   <h2>Post author: {author}</h2>
   <p>{description}</p>
@@ -20,7 +21,6 @@ const { title, description, publishDate, coverImage, author } = Astro.props;
 
 <style>
   .post-page {
-    margin: 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,5 +31,6 @@ const { title, description, publishDate, coverImage, author } = Astro.props;
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
+    height: auto;
   }
 </style>
