@@ -1,0 +1,52 @@
+h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+article {
+  font-size: 18px;
+}
+
+hr {
+  width: 100%;
+}
+.post-page {
+  font-family: "Open Sans";
+  width: 720px;
+  max-width: calc(100% - 2em);
+  margin: auto;
+  padding: 3em 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-page-cover {
+  width: 800px;
+  max-width: calc(100% - 1em);
+  height: auto;
+  margin: 0 auto;
+}
+
+.pub-date {
+  margin: 1px 0 0 0;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+  /* font-style: italic; */
+  font-size: 16px;
+  /* padding: 0; */
+}
+
+.post-description {
+  padding: 10px;
+  margin: 20px 20px auto auto;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.post-page-image {
+  width: 400px;
+  max-width: calc(100% - 1em);
+  height: auto;
+  margin: auto;
+  display: flex;
+}

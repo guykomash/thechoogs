@@ -2,34 +2,33 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import Layout from "./Layout.astro";
+import "../styles/post-page.css";
 
 type Props = CollectionEntry<"posts">["data"];
-const { title, description, publishDate, coverImage } = Astro.props;
+const { title, description, publishDate, coverImage, isHebTitle } = Astro.props;
+
+const formatDate = (publishDate: Date) => {
+  const year = publishDate.getFullYear();
+  const month =
+    publishDate.getMonth() + 1 < 10
+      ? `0${publishDate.getMonth() + 1}`
+      : publishDate.getMonth() + 1;
+  const day = publishDate.getDate();
+
+  return `${day}/${month}/${year}`;
+};
 ---
 
 <Layout>
   <div class="post-page">
+    <Image class="post-page-cover" src={coverImage} alt={title} />
     <h1>{title}</h1>
-    <Image class="post-page-image" src={coverImage} alt={title} />
+    <p class="pub-date">{formatDate(publishDate)}</p>
+    <hr />
+    <p class="post-description">{description}</p>
+    <article>
+      <slot />
+    </article>
+    <!-- Markdown content is injected here -->
   </div>
-  <p>{description}</p>
-  <p>{publishDate}</p>
-  <slot />
-  <!-- Markdown content is injected here -->
 </Layout>
-
-<style>
-  .post-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .post-page-image {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    height: auto;
-  }
-</style>
