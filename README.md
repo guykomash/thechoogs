@@ -1,5 +1,6 @@
 # The Choogs
-Recipes blog site
+
+My Recipes blog page -  https://guykomash.github.io/thechoogs/
 
 ### TODO
 
